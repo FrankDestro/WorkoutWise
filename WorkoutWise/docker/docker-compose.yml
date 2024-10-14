@@ -1,0 +1,28 @@
+version: '3.9'
+
+networks:
+  workoutwise-net:
+    driver: bridge
+
+services:
+# ====================================================================================================================
+# MYSQL-DB
+# ====================================================================================================================
+  workout-db:
+    image: mysql:latest
+    container_name: workout-db
+    environment:
+      TZ: America/Sao_Paulo
+      MYSQL_ROOT_PASSWORD: 1234567
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: 1234567
+      MYSQL_DATABASE: workout_wise_db
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_TCP_PORT: 3308
+    ports:
+      - "3308:3308"
+    expose:
+      - "3308"
+    networks:
+      - workoutwise-net
+    restart: unless-stopped

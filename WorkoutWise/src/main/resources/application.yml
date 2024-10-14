@@ -1,0 +1,32 @@
+spring:
+    application:
+        name: WorkoutWise
+    output:
+      ansi:
+        enabled: ALWAYS
+    profiles:
+      active:
+        - ${APP_PROFILE:test}
+#    datasource:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://localhost:3308/workout_wise_db?userTimezone=true&serverTimezone=UTC
+#      username: docker
+#      password: 1234567
+#    jpa:
+#      hibernate:
+#        ddl-auto: update
+#      show-sql: true
+#      properties:
+#        dialect: org.hibernate.dialect.MySQL9Dialect
+#    flyway:
+#      url: jdbc:mysql://localhost:3308/
+#      schemas: workout_wise_db
+#      user: docker
+#      password: 1234567
+    flyway:
+      enabled: false
+server:
+  port: 8082
+
+
+
